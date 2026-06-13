@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { Playfair_Display, Be_Vietnam_Pro } from "next/font/google";
 import { site } from "@/lib/site-config";
+import { hotelSchema, faqSchema } from "@/lib/structured-data";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const playfair = Playfair_Display({
   subsets: ["latin", "vietnamese"],
   weight: ["500", "600", "700"],
-  variable: "--font-cormorant",
+  variable: "--font-playfair",
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const beVietnam = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-jakarta",
+  variable: "--font-be-vietnam",
   display: "swap",
 });
 
@@ -41,13 +42,35 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} | ${site.slogan}`,
     description: site.description,
+    images: [
+      {
+        url: site.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${site.name} - ${site.slogan}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | ${site.slogan}`,
     description: site.description,
+    images: [site.ogImage],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // Dán mã xác minh Google Search Console vào đây (xem README)
+    google: site.googleVerification || undefined,
+  },
 };
 
 export const viewport: Viewport = {
@@ -56,36 +79,22 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Hotel",
-  name: site.name,
-  description: site.description,
-  url: site.url,
-  telephone: site.phone,
-  email: site.email,
-  priceRange: "₫₫",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "173 Hồ Nghinh",
-    addressLocality: "An Hải, Đà Nẵng",
-    addressCountry: "VN",
-  },
-  starRating: { "@type": "Rating", ratingValue: "4.8" },
-};
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" className={`${cormorant.variable} ${jakarta.variable}`}>
+    <html lang="vi" className={`${playfair.variable} ${beVietnam.variable}`}>
       <body>
         {children}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </body>
     </html>

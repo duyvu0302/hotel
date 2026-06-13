@@ -16,8 +16,8 @@ const config: Config = {
         muted: "#6B6B6B",
       },
       fontFamily: {
-        serif: ["var(--font-cormorant)", "Georgia", "serif"],
-        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        serif: ["var(--font-playfair)", "Georgia", "serif"],
+        sans: ["var(--font-be-vietnam)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         soft: "0 10px 40px -12px rgba(26, 26, 26, 0.12)",

@@ -10,17 +10,29 @@ export const site = {
   description:
     "Khách sạn Sen Vàng Đà Nẵng — không gian nghỉ dưỡng sạch sẽ, tiện nghi, ấm cúng. Tọa lạc tại trung tâm thành phố, cách biển vài phút đi bộ. Giá phòng chỉ từ 300.000đ/đêm.",
   priceFrom: "300.000đ",
-  url: "https://senvanghotel.vn",
+  url: "https://senvanghotel.vercel.app",
   // Liên hệ
   phone: "02363943966",
   phoneDisplay: "0236 394 3966",
   // Zalo dùng chung số hotline — đổi sang số di động nếu cần
   zalo: "02363943966",
-  email: "contact@senvanghotel.vn",
+  email: "senvangdanang@gmail.com",
   address: "173 Hồ Nghinh, Phường An Hải, Thành Phố Đà Nẵng",
+  city: "Đà Nẵng",
+  postalCode: "550000",
+  // Toạ độ gần đúng khu Hồ Nghinh, An Hải — chỉnh lại cho chính xác nếu cần
+  geo: { lat: 16.0672, lng: 108.2438 },
+  checkIn: "14:00",
+  checkOut: "12:00",
+  rating: { value: "4.8", count: 186 },
   mapEmbed:
     "https://www.google.com/maps?q=173+H%E1%BB%93+Nghinh,+An+H%E1%BA%A3i,+%C4%90%C3%A0+N%E1%BA%B5ng&output=embed",
   mapLink: "https://maps.google.com/?q=173+Hồ+Nghinh+Đà+Nẵng",
+  // Ảnh đại diện khi chia sẻ link (1200x630). Thay bằng ảnh thật của khách sạn.
+  ogImage:
+    "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&h=630&q=80",
+  // Mã xác minh Google Search Console (giá trị content của thẻ meta)
+  googleVerification: "gimd594Y_i-887r0snrA55TH9WrUzDAuPShU_i-jM5o",
   social: {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",
@@ -37,6 +49,7 @@ export const navLinks = [
   { label: "Tiện ích", href: "#amenities" },
   { label: "Hình ảnh", href: "#gallery" },
   { label: "Đánh giá", href: "#reviews" },
+  { label: "Hỏi đáp", href: "#faq" },
   { label: "Liên hệ", href: "#contact" },
 ] as const;
 
@@ -154,3 +167,32 @@ export const reviews = [
     text: "Không gian ấm cúng, yên tĩnh. Buổi sáng cafe view đẹp. Đặt phòng qua hotline được tư vấn rất chu đáo.",
   },
 ] as const;
+
+export type Faq = { q: string; a: string };
+
+export const faqs: Faq[] = [
+  {
+    q: "Khách sạn Sen Vàng Đà Nẵng nằm ở đâu?",
+    a: "Khách sạn toạ lạc tại 173 Hồ Nghinh, phường An Hải, thành phố Đà Nẵng — ngay trung tâm, chỉ cách biển Mỹ Khê vài phút đi bộ và gần nhiều điểm vui chơi, ẩm thực.",
+  },
+  {
+    q: "Giá phòng tại khách sạn Sen Vàng bao nhiêu?",
+    a: "Giá phòng chỉ từ 300.000đ/đêm cho phòng Standard. Các hạng Deluxe, Suite và Family có mức giá khác nhau. Vui lòng gọi hotline 0236 394 3966 hoặc nhắn Zalo để nhận báo giá và ưu đãi tốt nhất.",
+  },
+  {
+    q: "Khách sạn có chỗ đậu xe không?",
+    a: "Có. Khách sạn có bãi đậu xe riêng an toàn và thuận tiện cho cả ô tô và xe máy của Quý khách.",
+  },
+  {
+    q: "Giờ nhận phòng và trả phòng là khi nào?",
+    a: "Giờ nhận phòng từ 14:00 và trả phòng trước 12:00. Quý khách có thể liên hệ trước để được hỗ trợ nhận/trả phòng linh hoạt theo lịch trình.",
+  },
+  {
+    q: "Khách sạn có gần biển không?",
+    a: "Rất gần. Từ khách sạn chỉ mất vài phút đi bộ là ra tới bãi biển Mỹ Khê — một trong những bãi biển đẹp nhất Đà Nẵng.",
+  },
+  {
+    q: "Làm sao để đặt phòng tại khách sạn Sen Vàng?",
+    a: "Quý khách đặt phòng trực tiếp qua hotline 0236 394 3966 hoặc nhắn tin Zalo để được tư vấn nhanh nhất và nhận giá ưu đãi.",
+  },
+];

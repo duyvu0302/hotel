@@ -8,6 +8,7 @@ import { Amenities } from "@/components/sections/amenities";
 import { Gallery } from "@/components/sections/gallery";
 import { WhyUs } from "@/components/sections/why-us";
 import { Reviews } from "@/components/sections/reviews";
+import { Faq } from "@/components/sections/faq";
 import { Contact } from "@/components/sections/contact";
 import { Cta } from "@/components/sections/cta";
 
@@ -23,6 +24,7 @@ export default function HomePage() {
         <Gallery />
         <WhyUs />
         <Reviews />
+        <Faq />
         <Cta />
         <Contact />
       </main>
