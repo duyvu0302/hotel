@@ -1,0 +1,11 @@
+# Claude Code
+.claude/
+
+# Plans & docs (nội bộ, không cần đóng gói)
+plans/
+
+# Build & deps
+node_modules/
+.next/
+out/
+build/
