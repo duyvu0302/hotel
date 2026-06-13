@@ -19,7 +19,7 @@ export function Hero() {
         <p className="eyebrow animate-fade-in !text-gold-light">
           ★★★★★ &nbsp;·&nbsp; 173 Hồ Nghinh, Đà Nẵng
         </p>
-        <h1 className="max-w-4xl animate-fade-up font-serif text-4xl font-semibold leading-[1.1] sm:text-6xl md:text-7xl">
+        <h1 className="max-w-4xl animate-fade-up font-serif text-4xl font-semibold leading-[1.15] sm:text-6xl md:text-7xl">
           {site.name}
         </h1>
         <p className="mt-5 max-w-2xl animate-fade-up text-lg text-white/90 sm:text-xl [animation-delay:120ms]">

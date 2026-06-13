@@ -86,7 +86,7 @@ export function CheckIcon(p: IconProps) {
 }
 
 const amenityPaths: Record<string, ReactElement> = {
-  pool: <path d="M2 18c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1M7 15V5a2 2 0 0 1 4 0M13 15V5a2 2 0 0 1 4 0M7 9h10" />,
+  pool: <path d="M2 7c2 0 2 1.4 4 1.4S8 7 10 7s2 1.4 4 1.4S16 7 18 7s2 1.4 4 1.4M2 12.5c2 0 2 1.4 4 1.4s2-1.4 4-1.4 2 1.4 4 1.4 2-1.4 4-1.4 2 1.4 4 1.4M2 18c2 0 2 1.4 4 1.4s2-1.4 4-1.4 2 1.4 4 1.4 2-1.4 4-1.4 2 1.4 4 1.4" />,
   restaurant: <path d="M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2M5 11v11M11 2v20M21 15V2a5 5 0 0 0-3 5v6c0 1.1.9 2 2 2h1Z" />,
   cafe: <path d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8ZM6 2v2M10 2v2M14 2v2" />,
   spa: <path d="M12 22c4-2 7-6 7-11a7 7 0 0 0-14 0c0 5 3 9 7 11ZM12 22V8M9 11l3-3 3 3" />,
