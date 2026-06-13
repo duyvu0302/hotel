@@ -19,7 +19,6 @@ export function Gallery() {
     <section id="gallery" className="scroll-mt-20 bg-white py-24 md:py-32">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Hình ảnh</p>
           <h2 className="heading">Khoảnh khắc tại Sen Vàng</h2>
         </Reveal>
 

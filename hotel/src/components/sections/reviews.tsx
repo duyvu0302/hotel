@@ -7,7 +7,6 @@ export function Reviews() {
     <section id="reviews" className="scroll-mt-20 bg-white py-24 md:py-32">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Đánh giá khách hàng</p>
           <h2 className="heading">Khách hàng nói gì về chúng tôi</h2>
         </Reveal>
 

@@ -68,8 +68,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Dán mã xác minh Google Search Console vào đây (xem README)
-    google: site.googleVerification || undefined,
+    // Render 1 thẻ <meta google-site-verification> cho mỗi token (xem README)
+    google: [...site.googleVerification],
   },
 };
 

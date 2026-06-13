@@ -16,7 +16,6 @@ export function Cta() {
       <div className="absolute inset-0 bg-ink/70" />
 
       <Reveal className="container-px relative z-10 text-center text-white">
-        <p className="eyebrow !text-gold-light">Ưu đãi đặc biệt</p>
         <h2 className="mx-auto max-w-3xl font-serif text-3xl font-semibold leading-tight sm:text-5xl">
           Liên hệ ngay để nhận ưu đãi tốt nhất
         </h2>

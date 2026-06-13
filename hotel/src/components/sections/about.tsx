@@ -32,7 +32,6 @@ export function About() {
 
         <div>
           <Reveal>
-            <p className="eyebrow">Về chúng tôi</p>
             <h2 className="heading">Kỳ nghỉ trọn vẹn giữa lòng Đà Nẵng</h2>
           </Reveal>
           <Reveal delay={100}>

@@ -6,7 +6,6 @@ export function Faq() {
     <section id="faq" className="scroll-mt-20 bg-white py-24 md:py-32">
       <div className="container-px mx-auto max-w-3xl">
         <Reveal className="text-center">
-          <p className="eyebrow">Câu hỏi thường gặp</p>
           <h2 className="heading">Giải đáp nhanh cho Quý khách</h2>
         </Reveal>
 

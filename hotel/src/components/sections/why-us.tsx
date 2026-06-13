@@ -7,7 +7,6 @@ export function WhyUs() {
     <section className="scroll-mt-20 bg-cream py-24 md:py-32">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Vì sao chọn chúng tôi</p>
           <h2 className="heading">Lý do du khách tin chọn Sen Vàng</h2>
         </Reveal>
 

@@ -30,8 +30,12 @@ export const site = {
     mapLink: 'https://maps.google.com/?q=173+Hồ+Nghinh+Đà+Nẵng',
     // Ảnh đại diện khi chia sẻ link (Facebook/Zalo). Poster có tên + liên hệ.
     ogImage: '/image/promo-2.png',
-    // Mã xác minh Google Search Console (CHỈ giá trị token, không kèm tiền tố)
-    googleVerification: 'gimd594Y_i-887r0snrA55TH9WrUzDAuPShU_i-jM5o',
+    // Mã xác minh Google Search Console (CHỈ token, không kèm tiền tố).
+    // Mảng = nhiều property/lần xác minh cùng lúc.
+    googleVerification: [
+        'gimd594Y_i-887r0snrA55TH9WrUzDAuPShU_i-jM5o',
+        'H9XDW5aLLdH-Kf_EjGQrIzKx2GwkmzDMhSC7gWhC19E',
+    ],
     social: {
         facebook: 'https://www.facebook.com/senvang173honghinhdanang',
         instagram: 'https://instagram.com',
