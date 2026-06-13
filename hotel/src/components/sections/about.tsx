@@ -17,7 +17,7 @@ export function About() {
         <Reveal className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-card">
             <Image
-              src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1000&q=80"
+              src="/image/lobby.png"
               alt={`Không gian ${site.name}`}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=80"
+        src="/image/exterior-night.png"
         alt={`${site.name} - không gian sang trọng`}
         fill
         priority

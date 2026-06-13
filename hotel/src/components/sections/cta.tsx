@@ -7,7 +7,7 @@ export function Cta() {
   return (
     <section className="relative overflow-hidden py-28 md:py-36">
       <Image
-        src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=2000&q=80"
+        src="/image/room-spacious.png"
         alt={`${site.name} - đặt phòng ngay`}
         fill
         sizes="100vw"
