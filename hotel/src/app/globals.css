@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-gold/30 text-ink;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply mb-3 inline-block text-xs font-semibold uppercase tracking-[0.25em] text-gold-dark;
+  }
+  .heading {
+    @apply font-serif text-3xl font-semibold leading-tight text-ink sm:text-4xl md:text-5xl;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+  }
+  .btn-gold {
+    @apply btn bg-gold text-white shadow-soft hover:bg-gold-dark hover:shadow-card;
+  }
+  .btn-outline {
+    @apply btn border border-gold/60 text-gold-dark hover:bg-gold hover:text-white;
+  }
+  .btn-ghost-light {
+    @apply btn border border-white/40 text-white backdrop-blur-sm hover:bg-white/15;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

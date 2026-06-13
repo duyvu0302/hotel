@@ -1,0 +1,74 @@
+import Image from "next/image";
+import { rooms, callHref, zaloHref } from "@/lib/site-config";
+import { Reveal } from "@/components/reveal";
+import { PhoneIcon, ChatIcon, CheckIcon } from "@/components/icons";
+
+export function Rooms() {
+  return (
+    <section id="rooms" className="scroll-mt-20 bg-white py-24 md:py-32">
+      <div className="container-px">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow">Hệ thống phòng</p>
+          <h2 className="heading">Lựa chọn phòng nghỉ phù hợp</h2>
+          <p className="mt-4 text-muted">
+            Đa dạng hạng phòng cho mọi nhu cầu — từ nghỉ ngắn ngày đến kỳ nghỉ gia đình.
+          </p>
+        </Reveal>
+
+        <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+          {rooms.map((room, i) => (
+            <Reveal
+              as="article"
+              key={room.name}
+              delay={i * 80}
+              className="group flex flex-col overflow-hidden rounded-3xl bg-cream shadow-soft transition-shadow hover:shadow-card"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={room.image}
+                  alt={room.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-ink backdrop-blur-sm">
+                  {room.size}
+                </span>
+              </div>
+
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="font-serif text-xl font-semibold">{room.name}</h3>
+                <p className="mt-1 text-sm font-semibold text-gold-dark">{room.price}</p>
+
+                <ul className="mt-4 flex-1 space-y-2">
+                  {room.amenities.map((a) => (
+                    <li key={a} className="flex items-center gap-2 text-sm text-muted">
+                      <CheckIcon className="h-3.5 w-3.5 shrink-0 text-gold" />
+                      {a}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-6 flex gap-2">
+                  <a href={callHref} className="btn-gold flex-1 !px-3 !py-2.5 text-xs">
+                    <PhoneIcon className="h-4 w-4" />
+                    Gọi tư vấn
+                  </a>
+                  <a
+                    href={zaloHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Nhắn Zalo về ${room.name}`}
+                    className="btn-outline !px-3 !py-2.5"
+                  >
+                    <ChatIcon className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
