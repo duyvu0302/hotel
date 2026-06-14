@@ -21,6 +21,7 @@ export const site = {
     "https://www.google.com/maps?q=173+H%E1%BB%93+Nghinh,+An+H%E1%BA%A3i,+%C4%90%C3%A0+N%E1%BA%B5ng&output=embed",
   mapLink: "https://maps.google.com/?q=173+Hồ+Nghinh+Đà+Nẵng",
   ogImage: "/image/promo-2.png",
+  gaId: "G-GB1BZ618JD",
   googleVerification: [
     "gimd594Y_i-887r0snrA55TH9WrUzDAuPShU_i-jM5o",
     "H9XDW5aLLdH-Kf_EjGQrIzKx2GwkmzDMhSC7gWhC19E",
