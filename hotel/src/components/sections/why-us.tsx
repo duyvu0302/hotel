@@ -1,28 +1,31 @@
-import { reasons } from "@/lib/site-config";
 import { Reveal } from "@/components/reveal";
 import { AmenityIcon } from "@/components/icons";
+import type { Dict } from "@/lib/i18n/vi";
+
+interface WhyUsProps {
+  dict: Dict;
+}
 
 /**
  * Dark editorial band: numbered list (01-04) instead of a card grid.
  * Breaks the card-grid repetition and gives the page a premium theme-contrast
  * moment between the light sections.
  */
-export function WhyUs() {
+export function WhyUs({ dict }: WhyUsProps) {
+  const { whyUs } = dict;
+
   return (
     <section className="scroll-mt-20 bg-ink py-24 text-white md:py-32">
       <div className="container-px grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal>
           <h2 className="font-serif text-4xl font-medium leading-[1.25] sm:text-5xl md:text-6xl">
-            Lý do du khách tin chọn Sen Vàng
+            {whyUs.heading}
           </h2>
-          <p className="mt-5 max-w-md leading-relaxed text-white/65">
-            Những giá trị nhỏ làm nên kỳ nghỉ trọn vẹn, và là lý do Quý khách quay lại
-            Sen Vàng cho mỗi chuyến đi Đà Nẵng.
-          </p>
+          <p className="mt-5 max-w-md leading-relaxed text-white/65">{whyUs.subtext}</p>
         </Reveal>
 
         <div className="divide-y divide-white/10">
-          {reasons.map((r, i) => (
+          {whyUs.items.map((r, i) => (
             <Reveal
               key={r.title}
               delay={i * 90}

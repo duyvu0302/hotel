@@ -2,13 +2,20 @@ import Image from "next/image";
 import { callHref, zaloHref, site } from "@/lib/site-config";
 import { Reveal } from "@/components/reveal";
 import { PhoneIcon, ChatIcon } from "@/components/icons";
+import type { Dict } from "@/lib/i18n/vi";
 
-export function Cta() {
+interface CtaProps {
+  dict: Dict;
+}
+
+export function Cta({ dict }: CtaProps) {
+  const { cta } = dict;
+
   return (
     <section className="relative overflow-hidden py-28 md:py-36">
       <Image
-        src="/image/exterior-night.png"
-        alt={`${site.name} - đặt phòng ngay`}
+        src="/image/room-deluxe.png"
+        alt={`${site.name} - ${cta.heading}`}
         fill
         sizes="100vw"
         className="object-cover"
@@ -17,15 +24,13 @@ export function Cta() {
 
       <Reveal className="container-px relative z-10 text-center text-white">
         <h2 className="mx-auto max-w-3xl font-serif text-3xl font-semibold leading-tight sm:text-5xl">
-          Liên hệ ngay để nhận ưu đãi tốt nhất
+          {cta.heading}
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-white/80">
-          Đặt phòng trực tiếp qua hotline hoặc Zalo để được giá tốt nhất và tư vấn tận tình.
-        </p>
+        <p className="mx-auto mt-4 max-w-xl text-white/80">{cta.subtext}</p>
         <div className="mt-9 flex flex-wrap justify-center gap-4">
           <a href={callHref} className="btn-gold text-base">
             <PhoneIcon className="h-5 w-5" />
-            Gọi {site.phoneDisplay}
+            {cta.callBtn.replace("{phone}", site.phoneDisplay)}
           </a>
           <a
             href={zaloHref}
@@ -34,7 +39,7 @@ export function Cta() {
             className="btn-ghost-light text-base"
           >
             <ChatIcon className="h-5 w-5" />
-            Nhắn Zalo
+            {cta.zaloBtn}
           </a>
         </div>
       </Reveal>

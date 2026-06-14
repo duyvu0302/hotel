@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { gallery, site } from "@/lib/site-config";
 import { Reveal } from "@/components/reveal";
+import type { Dict } from "@/lib/i18n/vi";
+
+interface GalleryProps {
+  dict: Dict;
+}
 
 // Varied spans for a modern masonry-style grid
 const spans = [
@@ -14,12 +19,14 @@ const spans = [
   "sm:col-span-2 sm:row-span-2",
 ];
 
-export function Gallery() {
+export function Gallery({ dict }: GalleryProps) {
+  const { gallery: galleryDict } = dict;
+
   return (
     <section id="gallery" className="scroll-mt-20 bg-beige py-24 md:py-32">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="heading">Khoảnh khắc tại Sen Vàng</h2>
+          <h2 className="heading">{galleryDict.heading}</h2>
         </Reveal>
 
         <Reveal className="mt-14">
@@ -31,7 +38,9 @@ export function Gallery() {
               >
                 <Image
                   src={src}
-                  alt={`${site.name} - hình ảnh ${i + 1}`}
+                  alt={galleryDict.imgAlt
+                    .replace("{name}", site.name)
+                    .replace("{n}", String(i + 1))}
                   fill
                   sizes="(max-width: 640px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"

@@ -1,19 +1,24 @@
-import { reviews, site } from "@/lib/site-config";
+import { site } from "@/lib/site-config";
 import { Reveal } from "@/components/reveal";
 import { StarIcon } from "@/components/icons";
+import type { Dict } from "@/lib/i18n/vi";
+
+interface ReviewsProps {
+  dict: Dict;
+}
 
 /**
  * Featured testimonial (large pull-quote) + a supporting pair below.
- * Distinct layout family from the rest (not a 3-equal-card grid).
  */
-export function Reviews() {
-  const [featured, ...rest] = reviews;
+export function Reviews({ dict }: ReviewsProps) {
+  const { reviews } = dict;
+  const [featured, ...rest] = reviews.items;
 
   return (
     <section id="reviews" className="scroll-mt-20 bg-cream py-24 md:py-32">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="heading">Khách hàng nói gì về chúng tôi</h2>
+          <h2 className="heading">{reviews.heading}</h2>
           <div className="mt-4 inline-flex items-center gap-2 text-sm text-muted">
             <span className="flex gap-0.5 text-gold">
               {Array.from({ length: 5 }).map((_, i) => (
@@ -21,7 +26,9 @@ export function Reviews() {
               ))}
             </span>
             <span className="font-semibold text-ink">{site.rating.value}/5</span>
-            <span>từ {site.rating.count} đánh giá</span>
+            <span>
+              {reviews.ratingFrom.replace("{count}", String(site.rating.count))}
+            </span>
           </div>
         </Reveal>
 
@@ -33,7 +40,7 @@ export function Reviews() {
             aria-hidden
             className="pointer-events-none absolute left-7 top-3 font-serif text-7xl leading-none text-gold/25"
           >
-            “
+            &ldquo;
           </span>
           <p className="relative font-serif text-xl leading-relaxed text-ink md:text-2xl">
             {featured.text}

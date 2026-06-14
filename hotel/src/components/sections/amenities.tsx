@@ -1,27 +1,31 @@
-import { amenities } from "@/lib/site-config";
 import { Reveal } from "@/components/reveal";
 import { AmenityIcon } from "@/components/icons";
+import type { Dict } from "@/lib/i18n/vi";
+
+interface AmenitiesProps {
+  dict: Dict;
+}
 
 /**
  * Bento layout: first cell (wide, gold gradient) + last cell (wide, tinted)
- * are accent tiles; the middle four are standard centered tiles. Gives the
- * grid rhythm + background diversity without fake amenity photos.
+ * are accent tiles; the middle four are standard centered tiles.
  *
- * Desktop (4 cols):  [ feature x2 ][ • ][ • ]  /  [ • ][ • ][ wide x2 ]
+ * Desktop (4 cols):  [ feature x2 ][ . ][ . ]  /  [ . ][ . ][ wide x2 ]
  * Mobile  (2 cols):  feature full-width, pairs, wide full-width.
  */
-export function Amenities() {
-  const total = amenities.length;
+export function Amenities({ dict }: AmenitiesProps) {
+  const { amenities } = dict;
+  const total = amenities.items.length;
 
   return (
     <section id="amenities" className="scroll-mt-20 bg-cream py-24 md:py-32">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="heading">Trải nghiệm trọn vẹn mọi khoảnh khắc</h2>
+          <h2 className="heading">{amenities.heading}</h2>
         </Reveal>
 
         <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-5">
-          {amenities.map((a, i) => {
+          {amenities.items.map((a, i) => {
             const feature = i === 0;
             const wide = i === total - 1;
             const span = feature || wide ? "col-span-2" : "col-span-1";

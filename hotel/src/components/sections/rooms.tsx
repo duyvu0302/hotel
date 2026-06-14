@@ -1,22 +1,27 @@
 import Image from "next/image";
-import { rooms, callHref, zaloHref } from "@/lib/site-config";
+import { callHref, zaloHref } from "@/lib/site-config";
 import { Reveal } from "@/components/reveal";
 import { PhoneIcon, ChatIcon, CheckIcon } from "@/components/icons";
+import type { Dict } from "@/lib/i18n/vi";
 
-export function Rooms() {
+interface RoomsProps {
+  dict: Dict;
+}
+
+export function Rooms({ dict }: RoomsProps) {
+  const { rooms } = dict;
+
   return (
     <section id="rooms" className="scroll-mt-20 bg-beige py-24 md:py-32">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Hệ thống phòng</p>
-          <h2 className="heading">Lựa chọn phòng nghỉ phù hợp</h2>
-          <p className="mt-4 text-muted">
-            Đa dạng hạng phòng cho mọi nhu cầu, từ nghỉ ngắn ngày đến kỳ nghỉ gia đình.
-          </p>
+          <p className="eyebrow">{rooms.eyebrow}</p>
+          <h2 className="heading">{rooms.heading}</h2>
+          <p className="mt-4 text-muted">{rooms.subtext}</p>
         </Reveal>
 
         <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
-          {rooms.map((room, i) => (
+          {rooms.items.map((room, i) => (
             <Reveal
               as="article"
               key={room.name}
@@ -54,13 +59,13 @@ export function Rooms() {
                 <div className="mt-6 flex gap-2">
                   <a href={callHref} className="btn-gold flex-1 !px-3 !py-2.5 text-xs">
                     <PhoneIcon className="h-4 w-4" />
-                    Gọi tư vấn
+                    {rooms.callAdvise}
                   </a>
                   <a
                     href={zaloHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Nhắn Zalo về ${room.name}`}
+                    aria-label={rooms.chatZaloAria.replace("{name}", room.name)}
                     className="btn-outline !px-3 !py-2.5"
                   >
                     <ChatIcon className="h-4 w-4" />

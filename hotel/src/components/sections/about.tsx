@@ -1,16 +1,17 @@
 import Image from "next/image";
-import { stats, site } from "@/lib/site-config";
+import { site } from "@/lib/site-config";
 import { Reveal } from "@/components/reveal";
 import { CheckIcon } from "@/components/icons";
+import type { Dict } from "@/lib/i18n/vi";
 
-const highlights = [
-  "Vị trí trung tâm, gần biển & điểm vui chơi",
-  "Phòng sạch sẽ, tiện nghi hiện đại",
-  "Bãi đậu xe riêng an toàn",
-  "Lễ tân hỗ trợ 24/7",
-];
+interface AboutProps {
+  dict: Dict;
+}
 
-export function About() {
+export function About({ dict }: AboutProps) {
+  const { about } = dict;
+  const bodyText = about.body.replace("{name}", site.name);
+
   return (
     <section id="about" className="scroll-mt-20 bg-cream py-24 md:py-32">
       <div className="container-px grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
@@ -19,7 +20,7 @@ export function About() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-card">
             <Image
               src="/image/lobby.png"
-              alt={`Không gian ${site.name}`}
+              alt={about.imgAltLobby.replace("{name}", site.name)}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
@@ -29,7 +30,7 @@ export function About() {
           <div className="absolute -bottom-8 -left-6 hidden aspect-[3/4] w-40 overflow-hidden rounded-2xl border-4 border-cream shadow-card lg:block xl:w-48">
             <Image
               src="/image/exterior-night.png"
-              alt={`${site.name} về đêm`}
+              alt={about.imgAltNight.replace("{name}", site.name)}
               fill
               sizes="200px"
               className="object-cover"
@@ -38,24 +39,20 @@ export function About() {
           {/* Experience badge */}
           <div className="absolute -right-3 -top-3 hidden rounded-2xl bg-gold px-6 py-4 text-center text-white shadow-card sm:block">
             <p className="font-serif text-3xl font-semibold leading-none">12+</p>
-            <p className="mt-1 text-xs text-white/90">năm phục vụ</p>
+            <p className="mt-1 text-xs text-white/90">{about.badgeYears}</p>
           </div>
         </Reveal>
 
         <div>
           <Reveal>
-            <h2 className="heading">Kỳ nghỉ trọn vẹn giữa lòng Đà Nẵng</h2>
+            <h2 className="heading">{about.heading}</h2>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-5 leading-relaxed text-muted">
-              Tọa lạc ngay trung tâm thành phố, chỉ cách biển Mỹ Khê vài phút đi bộ,{" "}
-              {site.name} mang đến không gian nghỉ ngơi sạch sẽ, tiện nghi và ấm cúng.
-              Lựa chọn lý tưởng cho du lịch, công tác hay nghỉ ngắn ngày.
-            </p>
+            <p className="mt-5 leading-relaxed text-muted">{bodyText}</p>
           </Reveal>
           <Reveal delay={150}>
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-              {highlights.map((h) => (
+              {about.highlights.map((h) => (
                 <li key={h} className="flex items-start gap-2.5 text-sm text-ink/80">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/15">
                     <CheckIcon className="h-3 w-3 text-gold-dark" />
@@ -68,11 +65,9 @@ export function About() {
 
           <Reveal delay={200}>
             <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-gold/15 pt-8 sm:grid-cols-4">
-              {stats.map((s) => (
+              {about.stats.map((s) => (
                 <div key={s.label}>
-                  <dt className="font-serif text-3xl font-semibold text-gold-dark">
-                    {s.value}
-                  </dt>
+                  <dt className="font-serif text-3xl font-semibold text-gold-dark">{s.value}</dt>
                   <dd className="mt-1 text-xs leading-snug text-muted">{s.label}</dd>
                 </div>
               ))}

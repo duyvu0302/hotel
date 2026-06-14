@@ -2,12 +2,22 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { navLinks, site, callHref } from "@/lib/site-config";
+import { site, callHref } from "@/lib/site-config";
 import { PhoneIcon, MenuIcon, CloseIcon } from "@/components/icons";
+import type { Dict } from "@/lib/i18n/vi";
+import type { Locale } from "@/lib/i18n/config";
 
-export function Header() {
+interface HeaderProps {
+  lang: Locale;
+  dict: Dict;
+}
+
+export function Header({ lang, dict }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const otherLang: Locale = lang === "vi" ? "en" : "vi";
+  const { nav } = dict;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -36,8 +46,9 @@ export function Header() {
           />
         </a>
 
+        {/* Desktop nav */}
         <div className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((l) => (
+          {nav.links.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -48,21 +59,45 @@ export function Header() {
               {l.label}
             </a>
           ))}
+
+          {/* Language switcher */}
+          <a
+            href={`/${otherLang}`}
+            aria-label={nav.switchLangLabel}
+            className={`text-sm font-semibold tracking-wide transition-colors hover:text-gold ${
+              scrolled ? "text-ink/60" : "text-white/70"
+            }`}
+          >
+            {nav.switchLang}
+          </a>
+
           <a href={callHref} className="btn-gold !px-5 !py-2.5">
             <PhoneIcon className="h-4 w-4" />
             {site.phoneDisplay}
           </a>
         </div>
 
-        <button
-          type="button"
-          aria-label="Mở menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className={`lg:hidden ${scrolled || open ? "text-ink" : "text-white"}`}
-        >
-          {open ? <CloseIcon className="h-7 w-7" /> : <MenuIcon className="h-7 w-7" />}
-        </button>
+        {/* Mobile: lang switcher + hamburger */}
+        <div className="flex items-center gap-3 lg:hidden">
+          <a
+            href={`/${otherLang}`}
+            aria-label={nav.switchLangLabel}
+            className={`text-sm font-semibold tracking-wide transition-colors hover:text-gold ${
+              scrolled || open ? "text-ink/60" : "text-white/70"
+            }`}
+          >
+            {nav.switchLang}
+          </a>
+          <button
+            type="button"
+            aria-label={open ? nav.closeMenu : nav.openMenu}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className={scrolled || open ? "text-ink" : "text-white"}
+          >
+            {open ? <CloseIcon className="h-7 w-7" /> : <MenuIcon className="h-7 w-7" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer */}
@@ -72,7 +107,7 @@ export function Header() {
         }`}
       >
         <div className="container-px flex flex-col gap-1 py-4">
-          {navLinks.map((l) => (
+          {nav.links.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -84,7 +119,7 @@ export function Header() {
           ))}
           <a href={callHref} className="btn-gold mt-2">
             <PhoneIcon className="h-4 w-4" />
-            Gọi ngay {site.phoneDisplay}
+            {nav.callNow} {site.phoneDisplay}
           </a>
         </div>
       </div>

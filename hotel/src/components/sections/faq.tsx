@@ -1,16 +1,22 @@
-import { faqs } from "@/lib/site-config";
 import { Reveal } from "@/components/reveal";
+import type { Dict } from "@/lib/i18n/vi";
 
-export function Faq() {
+interface FaqProps {
+  dict: Dict;
+}
+
+export function Faq({ dict }: FaqProps) {
+  const { faq } = dict;
+
   return (
     <section id="faq" className="scroll-mt-20 bg-beige py-24 md:py-32">
       <div className="container-px mx-auto max-w-3xl">
         <Reveal className="text-center">
-          <h2 className="heading">Giải đáp nhanh cho Quý khách</h2>
+          <h2 className="heading">{faq.heading}</h2>
         </Reveal>
 
         <div className="mt-12 divide-y divide-gold/15 border-y border-gold/15">
-          {faqs.map((f, i) => (
+          {faq.items.map((f, i) => (
             <Reveal key={f.q} delay={i * 50}>
               <details className="group py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-semibold text-ink marker:hidden">
