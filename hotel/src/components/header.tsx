@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { navLinks, site, callHref } from "@/lib/site-config";
 import { PhoneIcon, MenuIcon, CloseIcon } from "@/components/icons";
@@ -24,14 +25,15 @@ export function Header() {
       }`}
     >
       <nav className="container-px flex h-20 items-center justify-between">
-        <a
-          href="#top"
-          className={`font-serif text-xl font-semibold tracking-wide sm:text-2xl ${
-            scrolled ? "text-ink" : "text-white"
-          }`}
-        >
-          {site.shortName}
-          <span className="text-gold"> · Hotel</span>
+        <a href="#top" className="flex items-center" aria-label={site.name}>
+          <Image
+            src="/image/logo-full.png"
+            alt={`${site.name} logo`}
+            width={185}
+            height={144}
+            priority
+            className="h-14 w-auto sm:h-16"
+          />
         </a>
 
         <div className="hidden items-center gap-8 lg:flex">

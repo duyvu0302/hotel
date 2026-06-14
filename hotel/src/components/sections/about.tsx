@@ -13,7 +13,8 @@ const highlights = [
 export function About() {
   return (
     <section id="about" className="scroll-mt-20 bg-cream py-24 md:py-32">
-      <div className="container-px grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+      <div className="container-px grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
+        {/* Layered image composition */}
         <Reveal className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-card">
             <Image
@@ -24,9 +25,20 @@ export function About() {
               className="object-cover"
             />
           </div>
-          <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-white px-7 py-5 shadow-card sm:block">
-            <p className="font-serif text-3xl font-semibold text-gold">12+</p>
-            <p className="text-sm text-muted">năm phục vụ tận tâm</p>
+          {/* Secondary overlapping photo for depth */}
+          <div className="absolute -bottom-8 -left-6 hidden aspect-[3/4] w-40 overflow-hidden rounded-2xl border-4 border-cream shadow-card lg:block xl:w-48">
+            <Image
+              src="/image/exterior-night.png"
+              alt={`${site.name} về đêm`}
+              fill
+              sizes="200px"
+              className="object-cover"
+            />
+          </div>
+          {/* Experience badge */}
+          <div className="absolute -right-3 -top-3 hidden rounded-2xl bg-gold px-6 py-4 text-center text-white shadow-card sm:block">
+            <p className="font-serif text-3xl font-semibold leading-none">12+</p>
+            <p className="mt-1 text-xs text-white/90">năm phục vụ</p>
           </div>
         </Reveal>
 
@@ -37,8 +49,8 @@ export function About() {
           <Reveal delay={100}>
             <p className="mt-5 leading-relaxed text-muted">
               Tọa lạc ngay trung tâm thành phố, chỉ cách biển Mỹ Khê vài phút đi bộ,{" "}
-              {site.name} mang đến không gian nghỉ ngơi sạch sẽ, tiện nghi và ấm cúng —
-              lựa chọn lý tưởng cho du lịch, công tác hay nghỉ ngắn ngày.
+              {site.name} mang đến không gian nghỉ ngơi sạch sẽ, tiện nghi và ấm cúng.
+              Lựa chọn lý tưởng cho du lịch, công tác hay nghỉ ngắn ngày.
             </p>
           </Reveal>
           <Reveal delay={150}>

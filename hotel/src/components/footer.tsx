@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site, navLinks, callHref } from "@/lib/site-config";
 import { MapPinIcon, PhoneIcon, MailIcon } from "@/components/icons";
 
@@ -8,10 +9,14 @@ export function Footer() {
     <footer className="bg-ink text-white/70">
       <div className="container-px grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-serif text-2xl font-semibold text-white">
-            {site.shortName}<span className="text-gold"> · Hotel</span>
-          </p>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed">{site.slogan}.</p>
+          <Image
+            src="/image/logo-full.png"
+            alt={`${site.name} logo`}
+            width={206}
+            height={160}
+            className="h-24 w-auto"
+          />
+          <p className="mt-4 max-w-xs text-sm leading-relaxed">{site.slogan}.</p>
           <div className="mt-5 flex gap-3">
             {Object.entries(site.social).map(([name, url]) => (
               <a

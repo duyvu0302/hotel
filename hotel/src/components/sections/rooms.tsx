@@ -5,13 +5,13 @@ import { PhoneIcon, ChatIcon, CheckIcon } from "@/components/icons";
 
 export function Rooms() {
   return (
-    <section id="rooms" className="scroll-mt-20 bg-white py-24 md:py-32">
+    <section id="rooms" className="scroll-mt-20 bg-beige py-24 md:py-32">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Hệ thống phòng</p>
           <h2 className="heading">Lựa chọn phòng nghỉ phù hợp</h2>
           <p className="mt-4 text-muted">
-            Đa dạng hạng phòng cho mọi nhu cầu — từ nghỉ ngắn ngày đến kỳ nghỉ gia đình.
+            Đa dạng hạng phòng cho mọi nhu cầu, từ nghỉ ngắn ngày đến kỳ nghỉ gia đình.
           </p>
         </Reveal>
 
@@ -21,7 +21,7 @@ export function Rooms() {
               as="article"
               key={room.name}
               delay={i * 80}
-              className="group flex flex-col overflow-hidden rounded-3xl bg-cream shadow-soft transition-shadow hover:shadow-card"
+              className="group flex flex-col overflow-hidden rounded-3xl bg-white shadow-soft transition-shadow hover:shadow-card"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -31,16 +31,18 @@ export function Rooms() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-ink backdrop-blur-sm">
+                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 to-transparent" />
+                <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-ink backdrop-blur-sm">
                   {room.size}
                 </span>
+                <div className="absolute inset-x-4 bottom-4 text-white">
+                  <h3 className="font-serif text-xl font-semibold drop-shadow">{room.name}</h3>
+                  <p className="text-sm font-semibold text-gold-light drop-shadow">{room.price}</p>
+                </div>
               </div>
 
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-serif text-xl font-semibold">{room.name}</h3>
-                <p className="mt-1 text-sm font-semibold text-gold-dark">{room.price}</p>
-
-                <ul className="mt-4 flex-1 space-y-2">
+                <ul className="flex-1 space-y-2">
                   {room.amenities.map((a) => (
                     <li key={a} className="flex items-center gap-2 text-sm text-muted">
                       <CheckIcon className="h-3.5 w-3.5 shrink-0 text-gold" />

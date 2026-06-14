@@ -23,7 +23,7 @@
     @apply mb-3 inline-block text-xs font-semibold uppercase tracking-[0.25em] text-gold-dark;
   }
   .heading {
-    @apply font-serif text-3xl font-semibold leading-[1.4] text-ink sm:text-4xl md:text-5xl;
+    @apply font-serif text-4xl font-medium leading-[1.25] text-ink sm:text-5xl md:text-6xl;
   }
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;

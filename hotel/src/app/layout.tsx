@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Be_Vietnam_Pro } from "next/font/google";
+import { Cormorant_Garamond, Be_Vietnam_Pro } from "next/font/google";
 import { site } from "@/lib/site-config";
 import { hotelSchema, faqSchema } from "@/lib/structured-data";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+// Elegant high-contrast serif for display (light weights) + VN-optimized body sans.
+const cormorant = Cormorant_Garamond({
   subsets: ["latin", "vietnamese"],
-  weight: ["500", "600", "700"],
-  variable: "--font-playfair",
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
 const beVietnam = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-be-vietnam",
   display: "swap",
 });
@@ -85,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi" className={`${playfair.variable} ${beVietnam.variable}`}>
+    <html lang="vi" className={`${cormorant.variable} ${beVietnam.variable}`}>
       <body>
         {children}
         <script

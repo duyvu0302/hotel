@@ -5,18 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // White + Gold luxury palette for Sen Vàng (Golden Lotus)
-        cream: "#FAF8F3",
-        ink: "#1A1A1A",
+        // Warm editorial palette for Sen Vàng (Golden Lotus): cream + beige + warm tan
+        cream: "#FAF8F4",
+        beige: "#F2ECE4",
+        ink: "#1C1916",
         gold: {
-          DEFAULT: "#C5A55C",
-          light: "#D9C28A",
-          dark: "#A9883F",
+          DEFAULT: "#B8956A",
+          light: "#D4B58A",
+          dark: "#8C6A43",
         },
-        muted: "#6B6B6B",
+        muted: "#6E665B",
       },
       fontFamily: {
-        serif: ["var(--font-playfair)", "Georgia", "serif"],
+        serif: ["var(--font-cormorant)", "Georgia", "serif"],
         sans: ["var(--font-be-vietnam)", "system-ui", "sans-serif"],
       },
       boxShadow: {

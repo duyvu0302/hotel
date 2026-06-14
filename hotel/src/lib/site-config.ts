@@ -6,9 +6,9 @@
 export const site = {
     name: 'Khách Sạn Sen Vàng',
     shortName: 'Sen Vàng',
-    slogan: 'Phòng nghỉ gần biển – ngay trung tâm Đà Nẵng',
+    slogan: 'Phòng nghỉ gần biển, ngay trung tâm Đà Nẵng',
     description:
-        'Khách sạn Sen Vàng Đà Nẵng — không gian nghỉ dưỡng sạch sẽ, tiện nghi, ấm cúng. Tọa lạc tại trung tâm thành phố, cách biển vài phút đi bộ. Giá phòng chỉ từ 300.000đ/đêm.',
+        'Khách sạn Sen Vàng Đà Nẵng: không gian nghỉ dưỡng sạch sẽ, tiện nghi, ấm cúng. Tọa lạc tại trung tâm thành phố, cách biển vài phút đi bộ. Giá phòng chỉ từ 300.000đ/đêm.',
     priceFrom: '300.000đ',
     url: 'https://senvanghotel.vercel.app',
     // Liên hệ
@@ -154,7 +154,7 @@ export const reasons = [
     },
     {
         title: 'Giá hợp lý',
-        desc: 'Phòng nghỉ chất lượng chỉ từ 300.000đ/đêm — lựa chọn lý tưởng cho mọi du khách.',
+        desc: 'Phòng nghỉ chất lượng chỉ từ 300.000đ/đêm, lựa chọn lý tưởng cho mọi du khách.',
         icon: 'price',
     },
     {
@@ -195,7 +195,7 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
     {
         q: 'Khách sạn Sen Vàng Đà Nẵng nằm ở đâu?',
-        a: 'Khách sạn toạ lạc tại 173 Hồ Nghinh, phường An Hải, thành phố Đà Nẵng — ngay trung tâm, chỉ cách biển Mỹ Khê vài phút đi bộ và gần nhiều điểm vui chơi, ẩm thực.',
+        a: 'Khách sạn toạ lạc tại 173 Hồ Nghinh, phường An Hải, thành phố Đà Nẵng, ngay trung tâm, chỉ cách biển Mỹ Khê vài phút đi bộ và gần nhiều điểm vui chơi, ẩm thực.',
     },
     {
         q: 'Giá phòng tại khách sạn Sen Vàng bao nhiêu?',
@@ -211,7 +211,7 @@ export const faqs: Faq[] = [
     },
     {
         q: 'Khách sạn có gần biển không?',
-        a: 'Rất gần. Từ khách sạn chỉ mất vài phút đi bộ là ra tới bãi biển Mỹ Khê — một trong những bãi biển đẹp nhất Đà Nẵng.',
+        a: 'Rất gần. Từ khách sạn chỉ mất vài phút đi bộ là ra tới bãi biển Mỹ Khê, một trong những bãi biển đẹp nhất Đà Nẵng.',
     },
     {
         q: 'Làm sao để đặt phòng tại khách sạn Sen Vàng?',

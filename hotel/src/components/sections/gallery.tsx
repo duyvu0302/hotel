@@ -16,7 +16,7 @@ const spans = [
 
 export function Gallery() {
   return (
-    <section id="gallery" className="scroll-mt-20 bg-white py-24 md:py-32">
+    <section id="gallery" className="scroll-mt-20 bg-beige py-24 md:py-32">
       <div className="container-px">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="heading">Khoảnh khắc tại Sen Vàng</h2>

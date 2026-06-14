@@ -3,7 +3,7 @@ import { Reveal } from "@/components/reveal";
 
 export function Faq() {
   return (
-    <section id="faq" className="scroll-mt-20 bg-white py-24 md:py-32">
+    <section id="faq" className="scroll-mt-20 bg-beige py-24 md:py-32">
       <div className="container-px mx-auto max-w-3xl">
         <Reveal className="text-center">
           <h2 className="heading">Giải đáp nhanh cho Quý khách</h2>
